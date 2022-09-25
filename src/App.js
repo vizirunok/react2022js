@@ -1,3 +1,4 @@
+import './App.css';
 import {useEffect} from "@types/react";
 import {getUsers} from "./services/userService";
 
