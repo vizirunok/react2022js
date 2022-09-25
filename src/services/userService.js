@@ -7,7 +7,10 @@ const getUsers = () => {
     return axiosInstance.get('/users')
 };
 
-export {getUsers};
+const getUser = (id) => {
+    return axiosInstance.get('/users' + id);
+};
+export {getUsers, getUser};
 
 
 

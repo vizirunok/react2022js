@@ -1,15 +1,16 @@
-
 import {getUsers} from "./services/userService";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
+import UserComponent from "./components/UserComponent";
 
 function App() {
+  let [users, setUsers] = useState([]);
   useEffect(() => {
-    getUsers().then(value => console.log(value));
+    getUsers().then(value => setUsers(value.data));
   },[])
   return (
     <div>
-
+      {users.map(value => <UserComponent key={value.id} item={value}/>)}
     </div>
   );
 }
