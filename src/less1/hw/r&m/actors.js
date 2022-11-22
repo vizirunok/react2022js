@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Actor from "./actor";
 
 export default function RandM() {
