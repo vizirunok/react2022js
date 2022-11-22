@@ -1,17 +1,18 @@
-import {getUsers} from "./services/userService";
-import {useEffect, useState} from "react";
-
-import UserComponent from "./components/UserComponent";
+import {useState} from "react";
+import {useEffect} from "@types/react";
 
 function App() {
-  let [users, setUsers] = useState([]);
+  let [set, getSet] = useState([]);
   useEffect(() => {
-    getUsers().then(value => setUsers(value.data));
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(value => value.json())
+        .then(value => {
+          getSet(value);})
   },[])
-  return (
-    <div>
-      {users.map(value => <UserComponent key={value.id} item={value}/>)}
-    </div>
-  );
+    return (
+        <div>
+            {console.log(set)}
+        </div>
+    );
 }
 export default App;
