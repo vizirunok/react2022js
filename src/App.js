@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useEffect} from "@types/react";
+import {useEffect} from "react";
 
 function App() {
   let [set, getSet] = useState([]);
@@ -11,7 +11,7 @@ function App() {
   },[])
     return (
         <div>
-            {console.log(set)}
+            {set.map(value => <div>{value.name}</div>)}
         </div>
     );
 }
