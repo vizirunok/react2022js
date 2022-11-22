@@ -3,11 +3,13 @@ import Actor from "./actor";
 
 export default function RandM() {
     let [actors, setActor] = useState([]);
-    fetch('https://rickandmortyapi.com/api/character')
-        .then(value => value.json())
-        .then(value => {
-            setActor(value.results.splice(0,6))
-        })
+    useEffect(() => {
+        fetch('https://rickandmortyapi.com/api/character')
+            .then(value => value.json())
+            .then(value => {
+                setActor(value.results.splice(0, 6))
+            })
+    }, []);
     return(
         <div>
             {
