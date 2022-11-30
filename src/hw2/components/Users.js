@@ -2,14 +2,14 @@ import {useEffect, useState} from "@types/react";
 import {getUsers} from "../services/axios.JSONPLACE";
 import {User} from "./User";
 
-function Users() {
-
+export default function Users() {
     let [users, setUsers] = useState([]);
-    let [dop, setDop] = useState([]);
 
-    const details = (info) => {
-        return setDop(info)
-    }
+    // let [dop, setDop] = useState([]);
+    //
+    // const details = (info) => {
+    //     return setDop(info)
+    // }
 
     useEffect(() => {
         getUsers().then(({data}) => setUsers(data))
@@ -17,7 +17,7 @@ function Users() {
 
     return(
         <div>
-            <p>{dop}</p>
+            {/*<p>{dop}</p>*/}
             <hr/>
             {
                 users.map(value => (<User key={value.id} value={value} details={details}/>))
@@ -25,4 +25,3 @@ function Users() {
         </div>
     )
 }
-export default Users;
