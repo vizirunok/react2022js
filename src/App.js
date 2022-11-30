@@ -1,30 +1,11 @@
-import {useEffect, useState} from "react";
-import {getUsers} from "./hw2/services/axios.JSONPLACE";
-import {User} from "./hw2/components/User";
+
+import {Users} from "./hw2/components/Users";
 
 function App() {
 
-    let [users, setUsers] = useState([]);
-
-    let [dop, setDop] = useState([]);
-
-    const details = (info) => {
-        return setDop(info)
-    }
-
-    useEffect(() => {
-        getUsers().then(({data}) => setUsers(data))
-    }, []);
-
     return(
         <div>
-            <hr/>
-            {
-                users.map(value => (<User key={value.id} value={value} details={details}/>))
-            }
-            {
-                dop()
-            }
+            <Users/>
         </div>
     )
 }
