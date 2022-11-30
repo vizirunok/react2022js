@@ -18,10 +18,12 @@ function App() {
 
     return(
         <div>
-            <p>{dop}</p>
             <hr/>
             {
                 users.map(value => (<User key={value.id} value={value} details={details}/>))
+            }
+            {
+                dop()
             }
         </div>
     )

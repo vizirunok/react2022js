@@ -4,7 +4,7 @@ export function User({value, details}) {
             <h4>{value.id} - {value.name}</h4>
             <p>Username: {value.username}</p>
             <p>Phone: {value.phone}</p>
-            <button onClick={()=>{details(value.address.city)}}>Details</button>
+            <button onClick={()=>{details(value)}}>Details</button>
         </div>
     )
 }
