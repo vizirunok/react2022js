@@ -14,8 +14,9 @@ export function Users() {
     //     return setDop(info)
     // }
 
+
     useEffect(() => {
-        userService.then(value => console.log(value));
+        userService().then(value => console.log(value));
     }, []);
 
     return(
