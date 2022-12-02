@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
-import {getUsers} from "../../services/axios.JSONPLACE";
+
 import {User} from "../user/User";
+import {userService} from "../../services/user.service";
 
 export function Users() {
 
@@ -13,7 +14,7 @@ export function Users() {
     }
 
     useEffect(() => {
-        getUsers().then(({data}) => setUsers(data))
+        userService.getAll().then(({data}) => setUsers(data))
     }, []);
 
     return(

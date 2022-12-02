@@ -1,8 +1,10 @@
 import {axiosInstance} from "./axios.JSONPLACE";
 import {urls} from "../configs";
 
-const userService={
+const userService = {
     getAll: () => {
         axiosInstance.get(urls.users);
     }
-}
+};
+
+export {userService};
