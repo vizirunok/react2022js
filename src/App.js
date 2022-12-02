@@ -1,11 +1,12 @@
 
-import {Users} from "./hw2/components/Users";
+import {Users} from "./hw2/components/users/Users";
 
 function App() {
 
     return(
         <div>
             <Users/>
+            'sds'
         </div>
     )
 }

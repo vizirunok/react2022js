@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {getUsers} from "../services/axios.JSONPLACE";
-import {User} from "./User";
+import {getUsers} from "../../services/axios.JSONPLACE";
+import {User} from "../user/User";
 
 export function Users() {
 
