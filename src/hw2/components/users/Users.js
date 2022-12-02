@@ -16,7 +16,7 @@ export function Users() {
 
 
     useEffect(() => {
-        userService().then(value => console.log(value));
+        userService.getAll().then(value => console.log(value.data));
     }, []);
 
     return(
