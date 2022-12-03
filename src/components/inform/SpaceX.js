@@ -7,9 +7,8 @@ function SpaceX() {
     let [mask, setMask] = useState([]);
 
     useEffect(() => {
-        axiosInstance().then(value => setMask(value.data.splice(0,5)))
+        axiosInstance().then(value => setMask(value.data.filter(value => value.launch_year !== '2000')));
     }, []);
-
 
     return (
         <div>
