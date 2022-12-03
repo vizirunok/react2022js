@@ -1,25 +1,103 @@
-
 import './App.css';
+import {useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  let [formState, setFormState] = useState({login:'', password: ''});
+
+
+  function onSubmit(e) {
+    console.log(formState);
+    e.preventDefault();
+
+  }
+
+  function onChange(e) {
+    setFormState({...formState, [e.target.name]:e.target.value})
+  }
+
+  return(
+      <div>
+        <form onSubmit={onSubmit}>
+          <input type="text" name={'login'} value={formState.login} onChange={onChange}/>
+          <input type="text" name={'password'} value={formState.password} onChange={onChange}/>
+          <button>Submit</button>
+        </form>
+
+      </div>
+  )
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let [login, setLogin] = useState('');
+// let [password, setPassword] = useState('');
+//
+// function onLoginChange(e) {
+//   setLogin(e.target.value)
+// }
+//
+// function onPasswordChange(e) {
+//   setPassword(e.target.value)
+// }
+//
+
+
+
+// let [formState, setFormState] = useState({login:'', password: ''});
+//
+//
+// function onSubmit(e) {
+//   e.preventDefault();
+//   console.log(formState)
+// }
+//
+// function onChange(e){
+//   setFormState({...formState, [e.target.name]: e.target.value})
+// }
+//
+//
+// return (
+//     <div>
+//       <form onSubmit={onSubmit}>
+//         <input type="text" name={'login'} value={formState.login} onChange={onChange}/>
+//         <input type="text" name={'password'} value={formState.password} onChange={onChange}/>
+//         <button>Submit</button>
+//       </form>
+//     </div>
+// );
