@@ -1,103 +1,75 @@
 import './App.css';
-import {useState} from "react";
+import {createRef, useState} from "react";
+import {useForm} from "react-hook-form";
 
 function App() {
 
-  let [formState, setFormState] = useState({login:'', password: ''});
+    let {register, handleSubmit} = useForm({
+        defaultValues: {
+            title: 'title default',
+            body: 'body default'
+        }
+    });
 
 
-  function onSubmit(e) {
-    console.log(formState);
-    e.preventDefault();
+    function onSubmit(data) {
+        console.log(data)
+    }
 
-  }
 
-  function onChange(e) {
-    setFormState({...formState, [e.target.name]:e.target.value})
-  }
+    return (
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input {...register('title', {required: true})}/>
+                <input {...register('body')}/>
+                <input type="submit" value={'save post'}/>
 
-  return(
-      <div>
-        <form onSubmit={onSubmit}>
-          <input type="text" name={'login'} value={formState.login} onChange={onChange}/>
-          <input type="text" name={'password'} value={formState.password} onChange={onChange}/>
-          <button>Submit</button>
-        </form>
+                <select {...register('userId')}>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    <option value="">6</option>
+                    <option value="">7</option>
+                    <option value="">8</option>
+                    <option value="">9</option>
+                    <option value="">10</option>
+                </select>
 
-      </div>
-  )
+            </form>
+        </div>
+    );
 }
 
 export default App;
 
 
+// DEMO 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let [login, setLogin] = useState('');
-// let [password, setPassword] = useState('');
+// function App() {
 //
-// function onLoginChange(e) {
-//   setLogin(e.target.value)
+//     let [info, setInfo] = useState({login:'', password: ''});
+//
+//
+//     function onSubmit(e) {
+//         e.preventDefault();
+//         console.log(info)
+//     }
+//
+//     function onChange(e) {
+//         setInfo({...info, [e.target.name]: e.target.value})
+//     }
+//
+//     return (
+//         <div>
+//             <form onSubmit={onSubmit}>
+//                 <input type="text" name={'login'} value={info.login} onChange={onChange}/>
+//                 <input type="text" name={'password'} value={info.password} onChange={onChange}/>
+//                 <button>Click Me!</button>
+//             </form>
+//         </div>
+//     );
 // }
 //
-// function onPasswordChange(e) {
-//   setPassword(e.target.value)
-// }
-//
-
-
-
-// let [formState, setFormState] = useState({login:'', password: ''});
-//
-//
-// function onSubmit(e) {
-//   e.preventDefault();
-//   console.log(formState)
-// }
-//
-// function onChange(e){
-//   setFormState({...formState, [e.target.name]: e.target.value})
-// }
-//
-//
-// return (
-//     <div>
-//       <form onSubmit={onSubmit}>
-//         <input type="text" name={'login'} value={formState.login} onChange={onChange}/>
-//         <input type="text" name={'password'} value={formState.password} onChange={onChange}/>
-//         <button>Submit</button>
-//       </form>
-//     </div>
-// );
+// export default App;
