@@ -4,40 +4,8 @@ import {useForm} from "react-hook-form";
 
 function App() {
 
-    let {register, handleSubmit} = useForm({
-        defaultValues: {
-            title: 'title default',
-            body: 'body default'
-        }
-    });
-
-
-    function onSubmit(data) {
-        console.log(data)
-    }
-
-
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('title', {required: true})}/>
-                <input {...register('body')}/>
-                <input type="submit" value={'save post'}/>
-
-                <select {...register('userId')}>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                    <option value="">6</option>
-                    <option value="">7</option>
-                    <option value="">8</option>
-                    <option value="">9</option>
-                    <option value="">10</option>
-                </select>
-
-            </form>
         </div>
     );
 }
@@ -73,3 +41,39 @@ export default App;
 // }
 //
 // export default App;
+
+
+// let {register, handleSubmit} = useForm({
+//     defaultValues: {
+//         title: 'title default',
+//         body: 'body default'
+//     }
+// });
+//
+//
+// function onSubmit(data) {
+//     console.log(data)
+// }
+//
+//
+// return (
+//     <div>
+//         <form onSubmit={handleSubmit(onSubmit)}>
+//             <input {...register('title', {required: true})}/>
+//             <input {...register('body')}/>
+//             <input type="submit" value={'save post'}/>
+//
+//             <select {...register('userId')}>
+//                 <option value="">1</option>
+//                 <option value="">2</option>
+//                 <option value="">3</option>
+//                 <option value="">4</option>
+//                 <option value="">5</option>
+//                 <option value="">6</option>
+//                 <option value="">7</option>
+//                 <option value="">8</option>
+//                 <option value="">9</option>
+//                 <option value="">10</option>
+//             </select>
+//
+//         </form>
