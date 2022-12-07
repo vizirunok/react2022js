@@ -1,46 +1,12 @@
 import './App.css';
 import {useForm} from "react-hook-form";
 import {createRef, useState} from "react";
+import {savePost} from "./service/post.api.service";
 
 export default function App() {
-
-    let {register, handleSubmit, formState: {errors}} = useForm();
-
-    function onSubmit(data) {
-        console.log(data);
-
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-    }
-
-    return (
+    return(
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('title',{required: true})}/>
-                {errors.title && <span>Write title, please</span>}
-                <input {...register('body', {required: true})}/>
-                {errors.body && <span>Write body, please</span>}
-                <input type="submit" value={'Save'}/>
-                <select {...register('userId')}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </form>
+
         </div>
     )
 }
@@ -164,6 +130,52 @@ export default function App() {
 //                 <input {...register('title', {required: true})}/>
 //                 <input {...register('body')}/>
 //                 <input type="submit" value={'save post'}/>
+//                 <select {...register('userId')}>
+//                     <option value="1">1</option>
+//                     <option value="2">2</option>
+//                     <option value="3">3</option>
+//                     <option value="4">4</option>
+//                     <option value="5">5</option>
+//                     <option value="6">6</option>
+//                     <option value="7">7</option>
+//                     <option value="8">8</option>
+//                     <option value="9">9</option>
+//                     <option value="10">10</option>
+//                 </select>
+//             </form>
+//         </div>
+//     )
+// }
+
+// DEMO 5
+//
+// export default function App() {
+//
+//     let {register, handleSubmit, formState: {errors}} = useForm();
+//
+//     function onSubmit(data){
+//         savePost(data).then(value => console.log(value.data));
+//
+
+        // fetch('https://jsonplaceholder.typicode.com/posts', {
+        //     method: 'POST',
+        //     body: JSON.stringify(data),
+        //     headers: {
+        //         'Content-type': 'application/json; charset=UTF-8',
+        //     },
+        // })
+        //     .then((response) => response.json())
+        //     .then((json) => console.log(json));
+    // }
+
+//     return (
+//         <div>
+//             <form onSubmit={handleSubmit(onSubmit)}>
+//                 <input {...register('title',{required: true})}/>
+//                 {errors.title && <span>Write title, please</span>}
+//                 <input {...register('body', {required: true})}/>
+//                 {errors.body && <span>Write body, please</span>}
+//                 <input type="submit" value={'Save'}/>
 //                 <select {...register('userId')}>
 //                     <option value="1">1</option>
 //                     <option value="2">2</option>
