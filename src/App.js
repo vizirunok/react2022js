@@ -27,30 +27,62 @@
 //         </form>
 //     </div>
 
+// let {register, handleSubmit, formState: {errors}} = useForm();
+//
+// const onSubmit = (data) => {
+//     console.log(data);
+//     savePost(data).then(value=> console.log(value))
+// }
+//
+//
+// return (
+//     <div>
+//         <form onSubmit={handleSubmit(onSubmit)}>
+//             <input {...register('title', {required:true})}/>
+//             {errors.title && <span>Write your login</span>}
+//             <input {...register('body')}/>
+//             <input type="submit" value="Saved"/>
+//
+//
+//             <select {...register('userID')}>
+//                 <option value="1">1</option>
+//                 <option value="2">2</option>
+//                 <option value="3">3</option>
+//                 <option value="4">4</option>
+//                 <option value="5">5</option>
+//                 <option value="6">6</option>
+//                 <option value="7">7</option>
+//                 <option value="8">8</option>
+//                 <option value="9">9</option>
+//                 <option value="10">10</option>
+//             </select>
+//         </form>
+//     </div>
+// );
+
 import './App.css';
 import {useForm} from "react-hook-form";
-import {savePost} from "./service/post.api.service";
+import {postUser} from "./service/post.api.service";
+import {createRef, useRef, useState} from "react";
 
 export default function App() {
 
     let {register, handleSubmit, formState: {errors}} = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
-        savePost(data).then(value=> console.log(value))
-    }
 
+    function onSubmit(data) {
+        postUser(data).then(value=> console.log(value))
+    }
 
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('title', {required:true})}/>
-                {errors.title && <span>Write your login</span>}
+                <input {...register('title',{required:true})}/>
+                {errors.title && <span>Write all information</span>}
                 <input {...register('body')}/>
-                <input type="submit" value="Saved"/>
+                <button>Click here</button>
 
-
-                <select {...register('userID')}>
+                <select {...register('userId')}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -60,11 +92,11 @@ export default function App() {
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="10">10</option>
                 </select>
             </form>
         </div>
-    );
+    )
+
 }
 
 
