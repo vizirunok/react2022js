@@ -4,6 +4,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import css from './form.module.css';
 import {CarValidator} from "../../validators";
 import {CarService} from "../../services/car.service";
+import {useEffect} from "react";
 
 
 const CarForm = ({setCars}) => {
@@ -18,6 +19,12 @@ const CarForm = ({setCars}) => {
         setCars(cars => [...cars, data]);
         reset();
     };
+
+    useEffect(() => {
+        setValue('model','')
+        setValue('price','')
+        setValue('year','')
+    }, []);
 
     return (
         <form className={css.Car} onSubmit={handleSubmit(submit)}>

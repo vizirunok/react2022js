@@ -13,12 +13,14 @@ const Cars = () => {
         CarService.getAll().then(({data}) => setCars(data))
     }, [])
 
+    const updateCar = (object) => object;
+
     return (
         <div>
-            <CarForm setCars={setCars}/>
+            <CarForm setCars={setCars} updateCar={updateCar}/>
             <hr/>
             {
-                cars.map(car => (<Car key={car.id} car={car} setCars={setCars}/>))
+                cars.map(car => (<Car key={car.id} car={car} setCars={setCars} updateCar={updateCar}/>))
             }
         </div>
     );

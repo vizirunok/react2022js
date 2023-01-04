@@ -1,6 +1,6 @@
 import {CarService} from "../../services/car.service";
 
-const Car = ({car,setCars}) => {
+const Car = ({car,setCars,updateCar}) => {
 
     const {id, model, price, year} = car;
 
@@ -13,10 +13,6 @@ const Car = ({car,setCars}) => {
         });
     };
 
-    const change = () => {
-
-    };
-
     return (
         <div>
             <div>
@@ -26,7 +22,7 @@ const Car = ({car,setCars}) => {
                 <div>price:{price}</div>
             </div>
             <div>
-                <button onClick={() => change()}>Update</button>
+                <button onClick={() => updateCar(car)}>Update</button>
                 <button onClick={() => kill()}>Delete</button>
             </div>
         </div>);
