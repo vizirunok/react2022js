@@ -13,6 +13,10 @@ const Car = ({car,setCars}) => {
         });
     };
 
+    const change = () => {
+
+    };
+
     return (
         <div>
             <div>
@@ -22,8 +26,8 @@ const Car = ({car,setCars}) => {
                 <div>price:{price}</div>
             </div>
             <div>
-                <button>Update</button>
-                <button onClick={()=>kill()}>Delete</button>
+                <button onClick={() => change()}>Update</button>
+                <button onClick={() => kill()}>Delete</button>
             </div>
         </div>);
 };
