@@ -5,16 +5,15 @@ import {UserValidator} from "../../validators";
 import {UserServices} from "../../services";
 
 
-const UserForm = ({setUsers}) => {
+const UserForm = () => {
 
     const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({
         resolver: joiResolver(UserValidator),
         mode: 'all'});
 
 
-    const onSubmit = (car) => {
-        UserServices.create(car).then(value => console.log(value))
-
+    const onSubmit = (item) => {
+        UserServices.create(item).then(value => console.log(value));
     };
 
     return (
