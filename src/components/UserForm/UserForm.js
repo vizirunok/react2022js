@@ -12,10 +12,8 @@ const UserForm = ({setUsers}) => {
         mode: 'all'});
 
 
-    const onSubmit = async (car) => {
-        const {data} = await UserServices.create(car);
-        console.log(data);
-        // setUsers(users => [...users, data]);
+    const onSubmit = (car) => {
+        UserServices.create(car).then(value => console.log(value))
 
     };
 
