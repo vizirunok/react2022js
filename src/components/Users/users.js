@@ -19,7 +19,7 @@ const Users = () => {
             <UserForm/>
             <hr/>
             {
-                users.map(user => (<User key={user.id} user={user}/>))
+                users.map(user => (<User key={user.id} user={user} setUsers={setUsers}/>))
             }
         </div>
     );

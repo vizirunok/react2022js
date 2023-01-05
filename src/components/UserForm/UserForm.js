@@ -5,7 +5,7 @@ import {UserValidator} from "../../validators";
 import {UserServices} from "../../services";
 
 
-const UserForm = () => {
+const UserForm = ({setUsers}) => {
 
     const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({
         resolver: joiResolver(UserValidator),
@@ -13,7 +13,7 @@ const UserForm = () => {
 
 
     const onSubmit = (obj) => {
-        UserServices.create(obj).then(({data}) => console.log(data));
+        UserServices.create(obj).then(({data}) => setUsers(users => [...users, data]));
     };
 
     return (
