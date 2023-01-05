@@ -14,7 +14,8 @@ const UserForm = ({setUsers}) => {
 
     const onSubmit = async (car) => {
         const {data} = await UserServices.create(car);
-        setUsers(users => [...users, data]);
+        console.log(data);
+        // setUsers(users => [...users, data]);
 
     };
 
