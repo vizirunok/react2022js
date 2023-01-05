@@ -12,8 +12,8 @@ const UserForm = () => {
         mode: 'all'});
 
 
-    const onSubmit = (item) => {
-        UserServices.create(item).then(value => console.log(value));
+    const onSubmit = (data) => {
+        UserServices.create(data).then(value => console.log(value));
     };
 
     return (
