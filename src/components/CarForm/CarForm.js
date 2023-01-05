@@ -5,9 +5,10 @@ import css from './form.module.css';
 import {CarValidator} from "../../validators";
 import {CarService} from "../../services/car.service";
 import {useEffect} from "react";
+import {Car} from "../Car/Car";
 
 
-const CarForm = ({setCars}) => {
+const CarForm = ({setCars, CarForUpdate, setCarForUpdate}) => {
 
     const {register, handleSubmit, reset, setValue, formState: {errors, isValid}} = useForm({
         resolver: joiResolver(CarValidator),
@@ -21,10 +22,12 @@ const CarForm = ({setCars}) => {
     };
 
     useEffect(() => {
-        setValue('model','')
-        setValue('price','')
-        setValue('year','')
-    }, []);
+        if (CarForUpdate) {
+            setValue('model', CarForUpdate.model, {shouldValidate: true})
+            setValue('price', CarForUpdate.price, {shouldValidate: true})
+            setValue('year', CarForUpdate.year, {shouldValidate: true})
+        }
+    }, [CarForUpdate]);
 
     return (
         <form className={css.Car} onSubmit={handleSubmit(submit)}>
@@ -34,7 +37,7 @@ const CarForm = ({setCars}) => {
             {errors.price && <span>{errors.price.message}</span>}
             <input type="text" placeholder={'year'} {...register('year', {valueAsNumber: true})}/>
             {errors.year && <span>{errors.year.message}</span>}
-            <button disabled={!isValid}>Save</button>
+            <button disabled={!isValid}>{setCarForUpdate ? 'Update' : 'Save'}</button>
         </form>
     );
 };
