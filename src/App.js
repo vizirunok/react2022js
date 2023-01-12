@@ -1,6 +1,6 @@
 import './App.css';
 import {useRoutes} from "react-router-dom";
-import {Todos} from "./basicElements";
+import {Albums, Todos} from "./basicElements";
 
 function App() {
 
@@ -8,14 +8,19 @@ function App() {
     {
       path: 'todos',
       element: <Todos/>
+    },
+    {
+      path: 'albums',
+      element: <Albums/>
     }
   ];
 
-  useRoutes(rotes);
+  let router = useRoutes(rotes);
+
+  console.log(router);
 
   return (
       <div>
-
       </div>
   );
 }
