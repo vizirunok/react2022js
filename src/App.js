@@ -6,21 +6,21 @@ function App() {
 
   let rotes = [
     {
-      path: 'todos',
+      index: true,
       element: <Todos/>
     },
-    {
-      path: 'albums',
-      element: <Albums/>
-    }
+    // {
+    //   path: 'albums',
+    //   element: <Albums/>
+    // }
   ];
 
-  let router = useRoutes(rotes);
+  let element = useRoutes(rotes);
 
-  console.log(router);
 
   return (
       <div>
+        {element}
       </div>
   );
 }
