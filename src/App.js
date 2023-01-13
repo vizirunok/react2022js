@@ -9,10 +9,10 @@ function App() {
       index: true,
       element: <Todos/>
     },
-    // {
-    //   path: 'albums',
-    //   element: <Albums/>
-    // }
+    {
+      index: true,
+      element: <Albums/>
+    }
   ];
 
   let element = useRoutes(rotes);
