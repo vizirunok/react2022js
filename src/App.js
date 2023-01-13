@@ -1,26 +1,27 @@
 import './App.css';
-import {useRoutes} from "react-router-dom";
-import {Albums, Todos} from "./basicElements";
+import {Routes, Route, Link} from "react-router-dom";
+import {Albums, Comments, Todos} from "./basicElements";
 
 function App() {
 
-  let rotes = [
-    {
-      index: true,
-      element: <Todos/>
-    },
-    {
-      index: true,
-      element: <Albums/>
-    }
-  ];
-
-  let element = useRoutes(rotes);
-
-
   return (
       <div>
-        {element}
+        <div>
+          <h3>menu</h3>
+          <ol>
+            <li><Link to={'todos'}>Todos</Link></li>
+            <li><Link to={'albums'}>Albums</Link></li>
+            <li><Link to={'comments'}>Comments</Link></li>
+          </ol>
+        </div>
+        <div>
+          <h4>content</h4>
+          <Routes>
+            <Route path={'todos'} element={<Todos/>}/>
+            <Route path={'albums'} element={<Albums/>}/>
+            <Route path={'comments'} element={<Comments/>}/>
+          </Routes>
+        </div>
       </div>
   );
 }
