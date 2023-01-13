@@ -1,6 +1,9 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
+
 import {axiosInstance, BasicServices} from "../services";
+import {Todo} from "../auxiliary.components";
+
 
 const Todos = () => {
 
@@ -13,7 +16,7 @@ const Todos = () => {
     return(
         <div>
             {
-
+                todos.map(value => <Todo key={value.id} value={value}/>)
             }
         </div>
     )
