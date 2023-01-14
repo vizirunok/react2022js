@@ -4,7 +4,8 @@ import {urls} from "../configs";
 const BasicServices = {
     getAllTodos: () => axiosInstance.get(urls.todos),
     getAllAlbums: () => axiosInstance.get(urls.albums),
-    getAllComments: () => axiosInstance.get(urls.comments),
+    getAlbumById: (id) => axiosInstance.get(`${urls.albums}/${id}`),
+    getAllComments: (id) => axiosInstance.get('/comments?postId='+(id)),
 };
 
 export {BasicServices};

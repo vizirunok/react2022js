@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 
-import {axiosInstance, BasicServices} from "../services";
+import {BasicServices} from "../services";
 import {Todo} from "../auxiliary.components";
 
 
@@ -15,9 +15,12 @@ const Todos = () => {
 
     return(
         <div>
+            <Outlet/>
             {
                 todos.map(value => <Todo key={value.id} value={value}/>)
             }
+            <hr/>
+
         </div>
     )
 };

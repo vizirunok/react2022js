@@ -1,29 +1,35 @@
 import './App.css';
 import {Routes, Route, Link} from "react-router-dom";
 import {Albums, Comments, Todos} from "./basicElements";
+import {TodoDetails} from "./auxiliary.components/TodoDetails";
+import {AlbumDetails} from "./auxiliary.components/AlbumDetails";
 
 function App() {
 
-  return (
-      <div>
+    return (
         <div>
-          <h3>menu</h3>
-          <ol>
-            <li><Link to={'todos'}>Todos</Link></li>
-            <li><Link to={'albums'}>Albums</Link></li>
-            <li><Link to={'comments'}>Comments</Link></li>
-          </ol>
+            <div>
+                <h3>menu</h3>
+                <ol>
+                    <li><Link to={'todos'}>Todos</Link></li>
+                    <li><Link to={'albums'}>Albums</Link></li>
+                    <li><Link to={'comments'}>Comments</Link></li>
+                </ol>
+            </div>
+            <div>
+                <h4>content</h4>
+                <Routes>
+                    <Route path={'todos'} element={<Todos/>}>
+                        <Route path={':id'} element={<TodoDetails/>}/>
+                    </Route>
+                    <Route path={'albums'} element={<Albums/>}>
+                        <Route path={':id'} element={<AlbumDetails/>}/>
+                    </Route>
+                    <Route path={'comments'} element={<Comments/>}/>
+                </Routes>
+            </div>
         </div>
-        <div>
-          <h4>content</h4>
-          <Routes>
-            <Route path={'todos'} element={<Todos/>}/>
-            <Route path={'albums'} element={<Albums/>}/>
-            <Route path={'comments'} element={<Comments/>}/>
-          </Routes>
-        </div>
-      </div>
-  );
+    );
 }
 
 export default App;
