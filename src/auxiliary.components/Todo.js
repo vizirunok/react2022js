@@ -9,7 +9,7 @@ const Todo = ({value}) => {
     return (
         <div>
             <h2>id:{id}. Title:{title}</h2>
-            <button onClick={() => navigate(...value)}></button>
+            <button onClick={() => navigate(id.toString())} state={{...value}}>Todo details</button>
         </div>
     );
 };
