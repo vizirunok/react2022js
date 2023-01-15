@@ -10,7 +10,7 @@ const AlbumDetails = () => {
     let [item, setItem] = useState([]);
 
     useEffect(() => {
-        BasicServices.getAlbumById(id).then(value => setItem(value));
+        BasicServices.getAlbumById(id).then(({data}) => setItem(data));
     }, [id]);
 
     return (
