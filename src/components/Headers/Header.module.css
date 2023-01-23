@@ -1,0 +1,10 @@
+.Header {
+    background-color: skyblue;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.btns{
+    margin: 5px;
+}
