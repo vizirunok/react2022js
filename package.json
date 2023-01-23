@@ -14,7 +14,7 @@
     "react-hook-form": "^7.42.1",
     "axios": "^1.2.3",
     "joi": "^17.7.0",
-    "joi-va"
+    "@hookform/resolvers": "^2.9.10"
   },
   "scripts": {
     "start": "react-scripts start",
