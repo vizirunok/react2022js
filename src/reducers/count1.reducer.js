@@ -1,6 +1,7 @@
 import {useReducer} from "react";
 import {DEC, INC, RESET, SET} from "./actions.reducer";
 
+
 const reducer = (state, action) => {
     switch (action.type) {
         case INC:
