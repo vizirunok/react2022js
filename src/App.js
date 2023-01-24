@@ -6,6 +6,7 @@ import {CarPage, Login, Register} from "./Pages";
 
 
 function App() {
+
     return (
         <div>
             <Routes>
